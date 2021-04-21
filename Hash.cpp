@@ -13,6 +13,8 @@ class Hash
 {
     const static int HASHSIZE = 140000;
     int size;
+    int found_compares;
+    int not_found_compares;
     T* hash;
 
 public:
@@ -105,14 +107,22 @@ public:
     };
 
     // hash function to map values to key
-    int hashFunction(T x) {
+    int hashFunction(T x) 
+    {
+
         int i = 0; long int val = 0; int g = 3;
 
         for (i = 0; i < x.size(); i++)
         {
             val = g * val + x.at(i);
+    
+        }
+        if (val > HASHSIZE)
+        {
+            val = 0;
 
         }
+
         return val % HASHSIZE;
     };
     //display hash
@@ -131,27 +141,16 @@ public:
         return size;
     
     }
-
-};
-
-/*int main()
-{
-
-    Hash<string> ht;
-    ht.insertItem("hello");
-    ht.insertItem("goodbye");
-    ht.displayHash();
-    bool found = false;
-    if(!ht.find("no"))
+    int foundCompares()
     {
-        cout << "Not found";
+        return found_compares;
 
-    }else
+    }
+    int notfoundCompares()
     {
-        cout << "found";
+        return not_found_compares;
 
     }
 
-    return 0;
+};
 
-}*/
