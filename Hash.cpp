@@ -11,7 +11,7 @@ using namespace std;
 template<class T>
 class Hash
 {
-    const static int HASHSIZE = 140000;
+    const static int HASHSIZE = 153337;
     int size;
     int found_compares;
     int not_found_compares;
