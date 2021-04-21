@@ -73,6 +73,7 @@ public:
     bool find(T item)
     {
         int key = hashFunction(item);
+        
         if (hash[key].compare(item) == 0)
         {
             return true;
@@ -117,12 +118,7 @@ public:
             val = g * val + x.at(i);
     
         }
-        if (val > HASHSIZE)
-        {
-            val = 0;
-
-        }
-
+       
         return val % HASHSIZE;
     };
     //display hash
