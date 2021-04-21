@@ -1,13 +1,13 @@
 Program #3
 
-Name:
+Name:Lydia Smith
 
 COSC 2030
 
-Competing: YES or NO
+Competing: NO
 
-Best run time:
+Best run time: I was not able to find the best run time.
 
-How to compile: 
+How to compile: g++ main.cpp -o program
 
-Anything that doesn't work:
+Anything that doesn't work: I get a segmentation fault when I run the program and I am not sure why.
