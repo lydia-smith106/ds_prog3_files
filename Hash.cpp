@@ -64,6 +64,11 @@ public:
             while (!entered)
             {
                 key++;
+                if(key > HASHSIZE)
+                {
+                    key = 0;
+                
+                }
                 if (hash[key].empty())
                 {
                     hash[key] = item;
@@ -109,6 +114,11 @@ public:
             while (!found)
             {
                 key++;
+                if(key > HASHSIZE)
+                {
+                    key = 0;
+                
+                }
 
                 if (hash[key].compare(item) == 0)
                 {
