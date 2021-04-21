@@ -11,7 +11,7 @@ using namespace std;
 template<class T>
 class Hash
 {
-    const static int HASHSIZE = 153337;
+    const static int HASHSIZE = 159473;
     int size;
     int found_compares;
     int not_found_compares;
@@ -78,9 +78,10 @@ public:
     //finds item in hash table
     bool find(T item)
     {
+        
         found_compares = 0;
         not_found_compares = 0;
-        
+
         int key = hashFunction(item);
         if (key > HASHSIZE)
         {
@@ -90,6 +91,7 @@ public:
 
         if (hash[key].compare(item) == 0)
         {
+
             found_compares++;
             not_found_compares++;
             return true;
@@ -126,6 +128,7 @@ public:
             }
 
         }
+       
 
     };
 
