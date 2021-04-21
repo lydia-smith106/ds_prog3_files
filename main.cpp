@@ -19,7 +19,7 @@ string cleanWord(string word);
 int main()
 {
 
-	//declare strings 
+	//declare strings
 	string line;
 	string word;
 	string newWord;
@@ -50,16 +50,14 @@ int main()
 		while (getline(myfile, line))
 		{
 			string newLine = cleanWord(line);
-			//cout << newLine << endl;
 			dictHash.insertItem(newLine);
-			//dict_list.AddLeaf(newLine);
-			//cout << newLine;
+
 		}
 		myfile.close();
 	}
 
 	else cout << "Unable to open file";
-	
+
 	//start timer
 	Watch.Start();
 
@@ -80,21 +78,24 @@ int main()
 				not_checked++;
 
 			}
-			else if(newWord.empty()== false)
+			else if (newWord.empty() == false)
 			{
 				//cout << newWord;
 				bool check = dictHash.find(newWord);
-				if(check == true)
+				if (check == true)
 				{
+					found_compares += dictHash.foundCompares();
 					found++;
-				
-				}else
+
+				}
+				else
 				{
+					not_found_compares += dictHash.notfoundCompares();
 					misspelled.push_back(newWord);
 					not_found++;
-				
+
 				}
-				
+
 			}
 		}
 		bookfile.close();
@@ -115,14 +116,14 @@ int main()
 
 	cout << std::fixed;
 	std::cout << std::setprecision(2);
-	cout << "dictionary size: " <<dictHash.returnSize()<< endl;
+	cout << "dictionary size: " << dictHash.returnSize() << endl;
 	cout << "Done checking and these are the results:" << endl;
 	cout << "finished in time: " << Watch.Time() << endl;
 	cout << "finished in Milliseconds time: " << Watch.TimeMS() << endl;
 	cout << "There are " << found << " words found in the dictionary." << endl;
-	//cout << "     " << found_compares << " compares. Average: " << (found_compares / found) << endl;
+	cout << "     " << found_compares << " compares. Average: " << (found_compares / found) << endl;
 	cout << "There are " << not_found << " words not found in the dictionary." << endl;
-	//cout << "     " << not_found_compares << " compares. Average: " << (not_found_compares / not_found) << endl;
+	cout << "     " << not_found_compares << " compares. Average: " << (not_found_compares / not_found) << endl;
 	cout << "There are " << not_checked << " words not checked." << endl;
 
 
@@ -144,8 +145,6 @@ string cleanWord(string word)
 	}
 
 	return word;
-
-
 };
 
 
