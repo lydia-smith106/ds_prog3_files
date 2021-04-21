@@ -69,7 +69,7 @@ public:
                     hash[key] = item;
                     size++;
                     entered = true;
-                    
+
 
                 }
             }
@@ -79,19 +79,23 @@ public:
     bool find(T item)
     {
         int key = hashFunction(item);
-        if(key > HASHSIZE)
+        if (key > HASHSIZE)
         {
             key = 0;
-        
+
         }
 
         if (hash[key].compare(item) == 0)
         {
+            found_compares++;
+            not_found_compares;
             return true;
 
         }
         else if (hash[key].empty())
         {
+            found_compares++;
+            not_found_compares;
             return false;
         }
         else
@@ -103,12 +107,15 @@ public:
 
                 if (hash[key].compare(item) == 0)
                 {
+                    found_compares++;
+                    not_found_compares;
                     return true;
 
                 }
                 else if (hash[key].empty())
                 {
-
+                    found_compares++;
+                    not_found_compares;
                     return false;
 
                 }
@@ -116,10 +123,14 @@ public:
             }
 
         }
+
+        found_compares = 0;
+        not_found_compares = 0;
+
     };
 
     // hash function to map values to key
-    int hashFunction(T x) 
+    int hashFunction(T x)
     {
 
         int i = 0; long int val = 0; int g = 3;
@@ -127,7 +138,7 @@ public:
         for (i = 0; i < x.size(); i++)
         {
             val = g * val + x.at(i);
-    
+
         }
 
         return val % HASHSIZE;
@@ -135,7 +146,7 @@ public:
     //display hash
     void displayHash()
     {
-        for (int i = 0; i < HASHSIZE; i++) 
+        for (int i = 0; i < HASHSIZE; i++)
         {
             cout << i;
             for (auto x : hash[i])
@@ -147,18 +158,19 @@ public:
     int returnSize()
     {
         return size;
+
+    };
     
-    }
     int foundCompares()
-    {
-        return found_compares;
+     {
+         return found_compares;
 
-    }
-    int notfoundCompares()
-    {
-        return not_found_compares;
+     };
+     int notfoundCompares()
+     {
+         return not_found_compares;
 
-    }
+     };
 
 };
 
