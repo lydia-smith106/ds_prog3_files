@@ -115,8 +115,6 @@ int main()
 
 	dictHash.~Hash();
 
-	//not_found_compares = dict_list.getTotalCompares() - found_compares;
-
 	cout << std::fixed;
 	std::cout << std::setprecision(2);
 	cout << "dictionary size: " << dictHash.returnSize() << endl;
