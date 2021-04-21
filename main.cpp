@@ -10,7 +10,7 @@
 #include <iomanip>
 #include <vector>
 #include "timer.h"
-#include "hash.cpp"
+#include "Hash.cpp"
 
 using namespace std;
 
