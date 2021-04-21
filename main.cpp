@@ -26,8 +26,8 @@ int main()
 
 
 	//declare files for I/O
-	ifstream myfile("practicedict.txt");
-	ifstream bookfile("practicebook.txt");
+	ifstream myfile("dict.txt");
+	ifstream bookfile("book.txt");
 	ofstream outFile{ "misspelled.txt" };
 
 	//declare vector and hash to hold dictionary
