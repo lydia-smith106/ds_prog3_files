@@ -4,7 +4,7 @@
 //4/20/21
 
 #include <iostream>
-#include<string>
+#include <string>
 using namespace std;
 
 //Hash class
