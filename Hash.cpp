@@ -78,6 +78,9 @@ public:
     //finds item in hash table
     bool find(T item)
     {
+        found_compares = 0;
+        not_found_compares = 0;
+        
         int key = hashFunction(item);
         if (key > HASHSIZE)
         {
@@ -88,14 +91,14 @@ public:
         if (hash[key].compare(item) == 0)
         {
             found_compares++;
-            not_found_compares;
+            not_found_compares++;
             return true;
 
         }
         else if (hash[key].empty())
         {
             found_compares++;
-            not_found_compares;
+            not_found_compares++;
             return false;
         }
         else
@@ -108,14 +111,14 @@ public:
                 if (hash[key].compare(item) == 0)
                 {
                     found_compares++;
-                    not_found_compares;
+                    not_found_compares++;
                     return true;
 
                 }
                 else if (hash[key].empty())
                 {
                     found_compares++;
-                    not_found_compares;
+                    not_found_compares++;
                     return false;
 
                 }
@@ -123,9 +126,6 @@ public:
             }
 
         }
-
-        found_compares = 0;
-        not_found_compares = 0;
 
     };
 
