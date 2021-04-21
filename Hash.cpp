@@ -46,6 +46,12 @@ public:
     void insertItem(T item)
     {
         int key = hashFunction(item);
+        if (key > HASHSIZE)
+        {
+            key = 0;
+
+        }
+
         if (hash[key].empty())
         {
             hash[key] = item;
@@ -73,7 +79,12 @@ public:
     bool find(T item)
     {
         int key = hashFunction(item);
+        if(key > HASHSIZE)
+        {
+            key = 0;
         
+        }
+
         if (hash[key].compare(item) == 0)
         {
             return true;
@@ -118,13 +129,14 @@ public:
             val = g * val + x.at(i);
     
         }
-       
+
         return val % HASHSIZE;
     };
     //display hash
     void displayHash()
     {
-        for (int i = 0; i < HASHSIZE; i++) {
+        for (int i = 0; i < HASHSIZE; i++) 
+        {
             cout << i;
             for (auto x : hash[i])
                 cout << " --> " << x;
