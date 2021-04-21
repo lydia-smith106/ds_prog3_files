@@ -26,8 +26,8 @@ int main()
 
 
 	//declare files for I/O
-	ifstream myfile("dict.txt");
-	ifstream bookfile("book.txt");
+	ifstream myfile("practicedict.txt");
+	ifstream bookfile("practicebook.txt");
 	ofstream outFile{ "misspelled.txt" };
 
 	//declare vector and hash to hold dictionary
@@ -91,8 +91,9 @@ int main()
 				else
 				{
 					not_found_compares += dictHash.notfoundCompares();
-					misspelled.push_back(newWord);
 					not_found++;
+					misspelled.push_back(newWord);
+					
 
 				}
 
@@ -111,6 +112,8 @@ int main()
 		outFile << misspelled.at(i) << endl;
 
 	}
+
+	dictHash.~Hash();
 
 	//not_found_compares = dict_list.getTotalCompares() - found_compares;
 
