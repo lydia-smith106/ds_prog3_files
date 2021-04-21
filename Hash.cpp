@@ -11,7 +11,7 @@ using namespace std;
 template<class T>
 class Hash
 {
-    const static int HASHSIZE = 16;
+    const static int HASHSIZE = 266,366;
     int size;
     T* hash;
 
