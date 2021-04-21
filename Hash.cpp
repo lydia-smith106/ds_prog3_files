@@ -51,8 +51,7 @@ public:
             key = 0;
 
         }
-
-        if (hash[key].empty())
+        else if(hash[key].empty())
         {
             hash[key] = item;
             size++;
@@ -69,7 +68,7 @@ public:
                     key = 0;
                 
                 }
-                if (hash[key].empty())
+                else if (hash[key].empty())
                 {
                     hash[key] = item;
                     size++;
@@ -93,8 +92,7 @@ public:
             key = 0;
 
         }
-
-        if (hash[key].compare(item) == 0)
+        else if(hash[key].compare(item) == 0)
         {
 
             found_compares++;
@@ -119,8 +117,7 @@ public:
                     key = 0;
                 
                 }
-
-                if (hash[key].compare(item) == 0)
+                else if(hash[key].compare(item) == 0)
                 {
                     found_compares++;
                     not_found_compares++;
